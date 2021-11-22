@@ -1,0 +1,36 @@
+{
+  "backdropPath": "backdropPath",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    }
+  ],
+  "id": 1,
+  "original_name": "originalname",
+  "overview": "overview",
+  "popularity": 1,
+  "poster_path": "poster_path",
+  "first_air_date": "first_air_date",
+  "name": "name",
+  "original_language": "original_language",
+  "vote_average": 1,
+  "vote_count": 1,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "German",
+      "iso_639_1": "de",
+      "name": "Deutsch"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ]
+}
