@@ -1,7 +1,7 @@
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/provider/nowplay_movie_notifier.dart';
+import 'package:ditonton/presentation/cubit/movie/movie_now_playing_cubit.dart';
 import 'package:ditonton/presentation/widgets/movie_card_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class NowplayingMoviePage extends StatefulWidget {
@@ -15,9 +15,10 @@ class _NowplayingMoviePageState extends State<NowplayingMoviePage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<NowPlayMovieNotifier>(context, listen: false)
-            .fetchNowPlayingovies());
+
+    Future.microtask(
+          () => context.read<MovieNowPlayingCubit>().get(),
+    );
   }
 
   @override
@@ -28,25 +29,25 @@ class _NowplayingMoviePageState extends State<NowplayingMoviePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<NowPlayMovieNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (data.state == RequestState.Loaded) {
+        child: BlocBuilder<MovieNowPlayingCubit, MovieNowPlayingState>(
+          builder: (context, state) {
+            if (state is MovieNowPlayingLoadingState) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is MovieNowPlayingLoadedState) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = data.movies[index];
-                  return MovieCard(movie);
+                  final movie = state.items[index];
+                  return MovieCard(movie: movie);
                 },
-                itemCount: data.movies.length,
+                itemCount: state.items.length,
+              );
+            } else if (state is MovieNowPlayingErrorState) {
+              return Center(
+                key: const Key('error_message'),
+                child: Text(state.message),
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
-              );
+              return const SizedBox();
             }
           },
         ),
