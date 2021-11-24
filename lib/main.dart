@@ -33,7 +33,6 @@ import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
 
-// 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
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
