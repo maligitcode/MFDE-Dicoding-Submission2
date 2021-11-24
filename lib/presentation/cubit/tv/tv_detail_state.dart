@@ -1,21 +1,21 @@
 part of 'tv_detail_cubit.dart';
 
 class TVDetailState extends Equatable {
-  final TVDetail movie;
+  final TVDetail tv;
   final bool isAddedToWatchlist;
   final String message;
   final String messageWatchlist;
   final RequestState requestState;
 
   const TVDetailState({
-    this.movie = const TVDetail(),
+    this.tv = const TVDetail(),
     this.isAddedToWatchlist = false,
     this.message = '',
     this.messageWatchlist = '',
     this.requestState = RequestState.Empty,
   });
 
-  TVDetailState setTV(TVDetail movie) => copyWith(movie: movie);
+  TVDetailState setTV(TVDetail tv) => copyWith(tv: tv);
   TVDetailState setAddedToWatchlist(bool value) => copyWith(isAddedToWatchlist: value);
   TVDetailState setRequestState(RequestState requestState) =>
       copyWith(requestState: requestState);
@@ -25,7 +25,7 @@ class TVDetailState extends Equatable {
   @override
   List<Object> get props {
     return [
-      movie,
+      tv,
       isAddedToWatchlist,
       message,
       messageWatchlist,
@@ -37,14 +37,14 @@ class TVDetailState extends Equatable {
   bool get stringify => true;
 
   TVDetailState copyWith({
-    TVDetail? movie,
+    TVDetail? tv,
     bool? isAddedToWatchlist,
     String? message,
     String? messageWatchlist,
     RequestState? requestState,
   }) {
     return TVDetailState(
-      movie: movie ?? this.movie,
+      tv: tv ?? this.tv,
       isAddedToWatchlist: isAddedToWatchlist ?? this.isAddedToWatchlist,
       message: message ?? this.message,
       messageWatchlist: messageWatchlist ?? this.messageWatchlist,

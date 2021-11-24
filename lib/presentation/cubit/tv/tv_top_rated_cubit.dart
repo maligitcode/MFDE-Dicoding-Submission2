@@ -8,14 +8,14 @@ part './tv_top_rated_state.dart';
 
 class TVTopRatedCubit extends Cubit<TVTopRatedState> {
   TVTopRatedCubit({
-    required this.getTopRatedTVs,
+    required this.getTopRatedTV,
   }) : super(const TVTopRatedInitialState());
 
-  final GetTopRatedTV getTopRatedTVs;
+  final GetTopRatedTV getTopRatedTV;
   Future<void> get() async {
     emit(const TVTopRatedLoadingState());
 
-    final result = await getTopRatedTVs.execute();
+    final result = await getTopRatedTV.execute();
     result.fold(
       (failure) => emit(TVTopRatedErrorState(failure.message)),
       (values) => emit(TVTopRatedLoadedState(items: values)),

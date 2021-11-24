@@ -7,14 +7,14 @@ part 'tv_watchlist_state.dart';
 
 class TVWatchlistCubit extends Cubit<TVWatchlistState> {
   TVWatchlistCubit({
-    required this.getWatchlistTVs,
+    required this.getWatchlistTV,
   }) : super(const TVWatchlistInitialState());
 
-  final GetWatchlistTV getWatchlistTVs;
+  final GetWatchlistTV getWatchlistTV;
 
   Future<void> get() async {
     emit(const TVWatchlistLoadingState());
-    final result = await getWatchlistTVs.execute();
+    final result = await getWatchlistTV.execute();
     result.fold(
       (failure) => emit(TVWatchlistErrorState(failure.message)),
       (values) => emit(TVWatchlistLoadedState(items: values)),

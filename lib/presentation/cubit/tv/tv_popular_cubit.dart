@@ -7,14 +7,14 @@ part 'tv_popular_state.dart';
 
 class TVPopularCubit extends Cubit<TVPopularState> {
   TVPopularCubit({
-    required this.getPopularTVs,
+    required this.getPopularTV,
   }) : super(const TVPopularInitialState());
 
-  final GetPopularTV getPopularTVs;
+  final GetPopularTV getPopularTV;
   Future<void> get() async {
     emit(const TVPopularLoadingState());
 
-    final result = await getPopularTVs.execute();
+    final result = await getPopularTV.execute();
 
     result.fold(
       (failure) => emit(TVPopularErrorState(failure.message)),
