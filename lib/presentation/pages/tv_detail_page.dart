@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 
 class TVDetailPage extends StatefulWidget {
 
-  static const ROUTE_NAME = '/detail';
+  static const ROUTE_NAME = '/detailtv';
 
   final int id;
 

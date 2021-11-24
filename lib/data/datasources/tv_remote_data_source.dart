@@ -27,7 +27,7 @@ class TVRemoteDataSourceImpl implements TVRemoteDataSource {
   TVRemoteDataSourceImpl({required this.client});
 
   Future<SecurityContext> get globalContext async {
-    final sslCert = await rootBundle.load('certificates/certificates.pem');
+    final sslCert = await rootBundle.load('assets/certificates.pem');
     SecurityContext securityContext = SecurityContext(withTrustedRoots: false);
     securityContext.setTrustedCertificatesBytes(sslCert.buffer.asInt8List());
     return securityContext;

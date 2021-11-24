@@ -31,6 +31,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     Future.microtask(() {
       context.read<MovieDetailCubit>().get(widget.id);
     });
+    print('idnya'+this.widget.id.toString());
   }
 
   @override
@@ -47,9 +48,9 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
               child: DetailContent(movie: state.movie),
             );
           } else if (requestState == RequestState.Error) {
-            return Center(child: Text(state.message));
+            return Center(child: Text(state.message,style: TextStyle(color:Colors.white),));
           } else {
-            return const SizedBox();
+            return Center(child: Text('error else',style: TextStyle(color:Colors.white),));
           }
         },
       ),
