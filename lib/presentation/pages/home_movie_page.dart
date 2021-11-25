@@ -76,7 +76,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: Icon(Icons.save_alt),
               title: Text('Movie Watchlist'),
               onTap: () {
-                FirebaseCrashlytics.instance.crash();
+                // FirebaseCrashlytics.instance.crash();
                 Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
               },
             ),
@@ -102,7 +102,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
-              FirebaseCrashlytics.instance.crash();
+              // FirebaseCrashlytics.instance.crash();
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
@@ -119,7 +119,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               _buildSubHeading(
                 title: 'Now Playing TV Series',
                 onTap: () {
-                  FirebaseCrashlytics.instance.crash();
+                  // FirebaseCrashlytics.instance.crash();
                   Navigator.pushNamed(context, NowplayingTVPage.ROUTE_NAME);
                  }
               ),
