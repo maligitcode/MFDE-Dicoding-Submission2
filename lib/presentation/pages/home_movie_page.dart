@@ -118,9 +118,10 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               //TV Area
               _buildSubHeading(
                 title: 'Now Playing TV Series',
-                onTap: () =>
-                    FirebaseCrashlytics.instance.crash();
-                    Navigator.pushNamed(context, NowplayingTVPage.ROUTE_NAME),
+                onTap: () {
+                  FirebaseCrashlytics.instance.crash();
+                  Navigator.pushNamed(context, NowplayingTVPage.ROUTE_NAME);
+                 }
               ),
               BlocBuilder<TVNowPlayingCubit, TVNowPlayingState>(
                 builder: (context, state) {
