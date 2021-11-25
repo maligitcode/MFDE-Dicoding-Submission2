@@ -35,7 +35,7 @@ import 'package:ditonton/injection.dart' as di;
 import 'common/ssl_pinning.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-// 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
+// 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
