@@ -27,16 +27,20 @@ import 'package:ditonton/presentation/pages/watchlist_tv_page.dart';
 import 'package:ditonton/presentation/pages/nowplaying_movies_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
-
+import 'common/ssl_pinning.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 // 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
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await HttpSSLPinning.init();
+  await initializeDateFormatting();
   di.init();
   runApp(MyApp());
 }

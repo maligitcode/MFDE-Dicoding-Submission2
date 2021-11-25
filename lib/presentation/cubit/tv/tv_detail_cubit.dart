@@ -2,7 +2,7 @@
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv_detail.dart';
 import 'package:ditonton/domain/usecases/tv/get_tv_detail.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_status.dart';
+import 'package:ditonton/domain/usecases/tv/get_watchlisttv_status.dart';
 import 'package:ditonton/domain/usecases/tv/remove_watchlisttv.dart';
 import 'package:ditonton/domain/usecases/tv/save_watchlisttv.dart';
 import 'package:equatable/equatable.dart';
@@ -21,7 +21,7 @@ class TVDetailCubit extends Cubit<TVDetailState> {
   final GetTVDetail getTVDetail;
   final SaveWatchlistTV saveWatchlist;
   final RemoveWatchlistTV removeWatchlist;
-  final GetWatchListStatus getWatchListStatus;
+  final GetWatchListStatusTV getWatchListStatus;
 
   /// Message
   static const watchlistAddSuccessMessage = 'Added to Watchlist';

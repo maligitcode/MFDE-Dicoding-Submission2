@@ -28,6 +28,7 @@ import 'package:ditonton/presentation/cubit/tv/tv_watchlist_cubit.dart';
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
+import 'common/ssl_pinning.dart';
 import 'data/datasources/tv_local_data_source.dart';
 import 'data/datasources/tv_remote_data_source.dart';
 import 'data/repositories/tv_repository_impl.dart';
@@ -181,5 +182,7 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  // locator.registerLazySingleton(() => http.Client());
+
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }
