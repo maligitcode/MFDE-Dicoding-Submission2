@@ -7,14 +7,21 @@ import 'package:meta/meta.dart';
 part 'tv_search_state.dart';
 
 class TVSearchCubit extends Cubit<TVSearchState> {
-  TVSearchCubit({required this.getSearchTVs})
-      : super(TVSearchInitial());
-  final SearchTV getSearchTVs;
+  TVSearchCubit({
+    required this.searchTVSeries,
+  }) : super(const TVSearchInitial());
 
+  final SearchTV searchTVSeries;
   Future<void> get(String query) async {
     emit(const TVSearhLoadingState());
-    final result = await getSearchTVs.execute(query);
-    result.fold((failure) => emit(TVSearchErrorState(failure.message)),
-        (values) => TVSearchLoadedState(items: values));
+    final result = await searchTVSeries.execute(query);
+    result.fold(
+          (failure) => emit(
+        TVSearchErrorState(failure.message),
+      ),
+          (values) => emit(
+        TVSearchLoadedState(items: values),
+      ),
+    );
   }
 }

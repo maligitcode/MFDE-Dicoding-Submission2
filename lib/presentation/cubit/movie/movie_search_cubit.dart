@@ -7,14 +7,20 @@ import 'package:meta/meta.dart';
 part 'movie_search_state.dart';
 
 class MovieSearchCubit extends Cubit<MovieSearchState> {
-  MovieSearchCubit({required this.getSearchMovies})
-      : super(MovieSearchInitial());
-  final SearchMovies getSearchMovies;
-
+  MovieSearchCubit({
+    required this.searchMovies,
+  }) : super(const MovieSearchInitial());
+  final SearchMovies searchMovies;
   Future<void> get(String query) async {
     emit(const MovieSearhLoadingState());
-    final result = await getSearchMovies.execute(query);
-    result.fold((failure) => emit(MovieSearchErrorState(failure.message)),
-        (values) => MovieSearchLoadedState(items: values));
+    final result = await searchMovies.execute(query);
+    result.fold(
+          (failure) => emit(
+        MovieSearchErrorState(failure.message),
+      ),
+          (values) => emit(
+        MovieSearchLoadedState(items: values),
+      ),
+    );
   }
 }

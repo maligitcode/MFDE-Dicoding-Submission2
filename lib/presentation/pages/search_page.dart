@@ -57,13 +57,14 @@ class SearchPage extends StatelessWidget {
                 if (state is MovieSearhLoadingState) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is MovieSearchLoadedState) {
-                  return ListView.builder(
+                  return Expanded(
+                      child: ListView.builder(
                     itemBuilder: (context, index) {
                       final movie = state.items[index];
                       return MovieCard(movie: movie);
                     },
                     itemCount: state.items.length,
-                  );
+                  ));
                 } else if (state is MovieSearchErrorState) {
                   return Center(
                     key: const Key('error_message'),
@@ -79,13 +80,14 @@ class SearchPage extends StatelessWidget {
                 if (state is TVSearhLoadingState) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is TVSearchLoadedState) {
-                  return ListView.builder(
+                  return Expanded(
+                      child: ListView.builder(
                     itemBuilder: (context, index) {
-                      final movie = state.items[index];
-                      return TVCard(tv: movie);
+                      final tv = state.items[index];
+                      return TVCard(tv: tv);
                     },
                     itemCount: state.items.length,
-                  );
+                  ));
                 } else if (state is TVSearchErrorState) {
                   return Center(
                     key: const Key('error_message'),

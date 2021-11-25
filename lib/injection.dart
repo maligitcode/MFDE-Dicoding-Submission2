@@ -62,6 +62,13 @@ void init() {
     ),
   );
 
+
+  locator.registerFactory(
+        () => MovieSearchCubit(
+        searchMovies: locator()
+    ),
+  );
+
   locator.registerFactory(
         () => MoviePopularCubit(
       getPopularMovies: locator(),
@@ -130,14 +137,8 @@ void init() {
   );
 
   locator.registerFactory(
-        () => MovieSearchCubit(
-          getSearchMovies: locator()
-        ),
-  );
-
-  locator.registerFactory(
         () => TVSearchCubit(
-        getSearchTVs: locator()
+            searchTVSeries: locator(),
     ),
   );
   // use case movie
