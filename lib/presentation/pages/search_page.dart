@@ -25,8 +25,8 @@ class SearchPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              onSubmitted: (query) {
-                context.read<MovieSearchCubit>().get(query);
+              onSubmitted: (query) async {
+                await context.read<MovieSearchCubit>().get(query);
               },
               decoration: InputDecoration(
                 hintText: 'Search movie',
@@ -37,8 +37,8 @@ class SearchPage extends StatelessWidget {
             ),
             SizedBox(height: 16),
             TextField(
-              onSubmitted: (query) {
-                context.read<TVSearchCubit>().get(query);
+              onSubmitted: (query) async {
+                await context.read<TVSearchCubit>().get(query);
               },
               decoration: InputDecoration(
                 hintText: 'Search tv',

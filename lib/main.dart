@@ -4,12 +4,14 @@ import 'package:ditonton/presentation/cubit/movie/movie_detail_cubit.dart';
 import 'package:ditonton/presentation/cubit/movie/movie_now_playing_cubit.dart';
 import 'package:ditonton/presentation/cubit/movie/movie_popular_cubit.dart';
 import 'package:ditonton/presentation/cubit/movie/movie_recommendations_cubit.dart';
+import 'package:ditonton/presentation/cubit/movie/movie_search_cubit.dart';
 import 'package:ditonton/presentation/cubit/movie/movie_top_rated_cubit.dart';
 import 'package:ditonton/presentation/cubit/movie/movie_watchlist_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_detail_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_now_playing_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_popular_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_recommendations_cubit.dart';
+import 'package:ditonton/presentation/cubit/tv/tv_search_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_top_rated_cubit.dart';
 import 'package:ditonton/presentation/cubit/tv/tv_watchlist_cubit.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
@@ -86,6 +88,12 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<TVDetailCubit>(
           create: (context) => di.locator<TVDetailCubit>(),
+        ),
+        BlocProvider<MovieSearchCubit>(
+          create: (context) => di.locator<MovieSearchCubit>(),
+        ),
+        BlocProvider<TVSearchCubit>(
+          create: (context) => di.locator<TVSearchCubit>(),
         ),
       ],
       child: MaterialApp(
