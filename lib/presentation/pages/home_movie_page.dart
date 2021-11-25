@@ -19,6 +19,7 @@ import 'package:ditonton/presentation/pages/tv_detail_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_movies_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_tv_page.dart';
 import 'package:ditonton/common/state_enum.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -75,6 +76,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               leading: Icon(Icons.save_alt),
               title: Text('Movie Watchlist'),
               onTap: () {
+                FirebaseCrashlytics.instance.crash();
                 Navigator.pushNamed(context, WatchlistMoviesPage.ROUTE_NAME);
               },
             ),
@@ -100,6 +102,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
+              FirebaseCrashlytics.instance.crash();
               Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
@@ -116,6 +119,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               _buildSubHeading(
                 title: 'Now Playing TV Series',
                 onTap: () =>
+                    FirebaseCrashlytics.instance.crash();
                     Navigator.pushNamed(context, NowplayingTVPage.ROUTE_NAME),
               ),
               BlocBuilder<TVNowPlayingCubit, TVNowPlayingState>(
