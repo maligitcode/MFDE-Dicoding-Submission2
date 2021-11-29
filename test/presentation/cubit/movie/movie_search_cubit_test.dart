@@ -16,7 +16,7 @@ void main() {
   late MovieSearchCubit cubit;
   setUp(() {
     mockSearchMovies = MockSearchMovies();
-    cubit = MovieSearchCubit(getSearchMovies: mockSearchMovies);
+    cubit = MovieSearchCubit(searchMovies: mockSearchMovies);
   });
 
   tearDown(() async {
@@ -53,7 +53,7 @@ void main() {
         act: (bloc) => bloc.get(tQuery),
         expect: () => [
           const MovieSearhLoadingState(),
-          // MovieSearchLoadedState(items: tMovieList),
+          MovieSearchLoadedState(items: tMovieList),
         ],
       );
 

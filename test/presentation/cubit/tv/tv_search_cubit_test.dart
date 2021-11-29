@@ -17,7 +17,7 @@ void main() {
   late TVSearchCubit cubit;
   setUp(() {
     mockSearchTV = MockSearchTV();
-    cubit = TVSearchCubit(getSearchTVs: mockSearchTV);
+    cubit = TVSearchCubit(searchTVSeries: mockSearchTV);
   });
 
   tearDown(() async {
@@ -53,7 +53,7 @@ void main() {
         act: (bloc) => bloc.get(tQuery),
         expect: () => [
           const TVSearhLoadingState(),
-          // TVSearchLoadedState(items: tTVList),
+          TVSearchLoadedState(items: tTVList),
         ],
       );
 
